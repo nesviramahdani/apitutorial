@@ -31,8 +31,12 @@ $router->get('/key', function() {
 
 $router->post('/login', ['uses' => 'UserController@login']);
 $router->post('/register', ['uses' =>'UserController@register']);
+//$router->post('/user/update', ['middleware' => 'auth', 'uses' =>  'UserController@update']);
+
+
 $router->get('/index', ['uses' =>'GalonController@index']);
+$router->get('image/{name}', 'GalonController@get_image');
 $router->post('/create', ['uses' =>'GalonController@create']);
 
 $router->get('galon/search/', 'GalonController@index');
-$router->get('galon/search/{nama_agalon}', 'GalonController@search');
+$router->get('galon/search/{nama_galon}', 'GalonController@search');
