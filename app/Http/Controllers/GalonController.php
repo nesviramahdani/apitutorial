@@ -26,46 +26,12 @@ class GalonController extends Controller
     //insert data
     public function create(Request $request){
 
-        $this->validate($request,[
-            'id' => 'required',
-            'nama_galon' => 'required',
-            'alamat_galon' => 'required',
-            'telepon' => 'required',
-            'bukaTutup' => 'required,
-            'harga' => 'required',
-            'image' =>'requiredd',
-     
-        ]);
+        $data = $request->all();
+        $book = Galon::create($data);
 
-        //upload foto
-
-        
-        $add = Galon::create([
-            'id' =>$id,
-            'nama_galon' =>$nama_galon,
-            'alamat_galon' =>$alamat_galon,
-            'telepon' =>$telepon,
-            'bukaTutup' =>$bukaTutup,
-            'harga' =>$harga,
-            'image' =>$image,
-
-        ]);
-
-        if($add){
-            return response()->json([
-                'status' =>"Berhasil Menambah Data",
-                'data' =>$add
-            ]);
-        }else{
-            return response()->json([
-                'status' =>'Gagal Menambah Data',
-                'data' =>null
-            ]);
-        }
+        return response()->json($book);
 
     }   
-   
-
     //mencari data
     public function search($nama_galon){
         $galon = Galon::where('nama_galon', 'like', "%{$nama_galon}%")->get();
