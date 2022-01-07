@@ -38,30 +38,7 @@ class GalonController extends Controller
 
         //upload foto
 
-        if($request->file('image')){
-            $name=time().$request->file('image')->getClientOriginalName();
-            $request->file('image')->move('foto', $name);
-
-            $id = $request->id;
-            $nama_galon = $request->nama_galon;
-            $alamat_galon = $request->alamat_galon;
-            $telepon = $request->telepon;
-            $bukaTutup = $request->bukaTutup;
-            $jumlah = $request->jumlah;
-            $harga = $request->harga;
-            $image= url('foto'.'/'.$name);
-        }else{
-            $id = $request->id;
-            $nama_galon = $request->nama_galon;
-            $alamat_galon = $request->alamat_galon;
-            $telepon = $request->telepon;
-            $bukaTutup = $request->bukaTutup;
-            $jumlah = $request->jumlah;
-            $harga = $request->harga;
-            $image= 'default.png';
-
-        }
-
+        
         $add = Galon::create([
             'id' =>$id,
             'nama_galon' =>$nama_galon,
