@@ -31,8 +31,7 @@ class GalonController extends Controller
             'nama_galon' => 'required',
             'alamat_galon' => 'required',
             'telepon' => 'required',
-            'bukaTutup' => 'required',
-            'jumlah' => 'required',
+            'bukaTutup' => 'required,
             'harga' => 'required',
             'image' =>'requiredd',
      
@@ -47,7 +46,6 @@ class GalonController extends Controller
             'alamat_galon' =>$alamat_galon,
             'telepon' =>$telepon,
             'bukaTutup' =>$bukaTutup,
-            'jumlah' =>$jumlah,
             'harga' =>$harga,
             'image' =>$image,
 
