@@ -20,7 +20,6 @@ class CreateGalonsTable extends Migration
             $table->string('bukaTutup');
             $table->string('telepon');
             $table->integer('jumlah');
-            $table->integer('harga');
             $table->string('image')->nullable();
             $table->timestamps();
         });
