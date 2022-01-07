@@ -34,6 +34,8 @@ class GalonController extends Controller
             'bukaTutup' => 'required',
             'jumlah' => 'required',
             'harga' => 'required',
+            'image' =>'requiredd',
+     
         ]);
 
         //upload foto
