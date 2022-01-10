@@ -37,6 +37,7 @@ $router->post('/register', ['uses' =>'UserController@register']);
 $router->get('/index', ['uses' =>'GalonController@index']);
 $router->get('image/{name}', 'GalonController@get_image');
 $router->post('/create', ['uses' =>'GalonController@create']);
+$router->post('/insert', ['uses' =>'HistoryController@insert']);
 
 $router->get('galon/search/', 'GalonController@index');
 $router->get('galon/search/{nama_galon}', 'GalonController@search');
