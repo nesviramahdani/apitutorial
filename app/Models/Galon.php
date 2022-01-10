@@ -15,6 +15,6 @@ class Galon extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'nama_galon','alamat_galon', 'bukaTutup', 'telepon', 'jumlah', 'harga','image'
+        'id', 'nama_galon','alamat_galon', 'bukaTutup', 'telepon','harga','image'
     ];
 }

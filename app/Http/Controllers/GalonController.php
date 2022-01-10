@@ -32,8 +32,6 @@ class GalonController extends Controller
         return response()->json($book);
 
     }   
-   
-
     //mencari data
     public function search($nama_galon){
         $galon = Galon::where('nama_galon', 'like', "%{$nama_galon}%")->get();
