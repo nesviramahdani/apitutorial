@@ -23,22 +23,24 @@ public function register(Request $request)
 
 public function login(Request $request)
     {
+          $this->validate($request,  [
+            'email' => 'required|email',
+            'password' => 'required|min:5'
+        ]);
+    
         $email    = $request->input('email');
         $password = $request->input('password');
 
-        $user = User::where('email', $email)->first();
-
-        if($user->password === $password){
-          return response()->json([
-              'pesan' => 'login berhasil',
-              'data'  => $user
-          ]);
+   
+    
+   $user = User::where('email', $email)->first();
+        if (!$user) {
+            return response()->json(['message' => 'Login failed'], 401);
         }
-        else{
-            return response()->json([
-                'pesan' => 'login gagal',
-                'data'  => ''
-            ]);
+
+        $isValidPassword = Hash::check($password, $user->password);
+        if (!$isValidPassword) {
+            return response()->json(['message' => 'Login failed'], 401);
         }
     }
 
