@@ -33,14 +33,19 @@ public function login(Request $request)
 
    
     
-   $user = User::where('email', $email)->first();
-        if (!$user) {
-            return response()->json(['message' => 'Login failed'], 401);
-        }
+        $user = User::where('email', $email)->first();
 
-        $isValidPassword = Hash::check($password, $user->password);
-        if (!$isValidPassword) {
-            return response()->json(['message' => 'Login failed'], 401);
+        if($user->password === $password){
+          return response()->json([
+              'pesan' => 'login berhasil',
+              'data'  => $user
+          ]);
+        }
+        else{
+            return response()->json([
+                'pesan' => 'login gagal',
+                'data'  => ''
+            ]);
         }
     }
 
